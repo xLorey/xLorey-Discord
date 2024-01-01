@@ -1,0 +1,74 @@
+/**
+ * Standard plugins for the Gradle builder
+ */
+plugins {
+    id 'java'
+}
+
+/**
+ * Project group and version
+ */
+group = 'io.xlorey.Discord'
+version = '0.1.0'
+
+/**
+ * Repositories used
+ */
+repositories {
+    mavenCentral()
+}
+
+/**
+ * Plugin Dependencies
+ */
+dependencies {
+    /**
+     * Other dependencies
+     */
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    /**
+     * Flux Loader - connects only in compileOnly format
+     */
+    compileOnly files("libs/FluxLoader-0.7.0.jar")
+
+    /**
+     * Zombie Libs
+     */
+    compileOnly files("libs/zombie.jar")
+    compileOnly files("libs/fmod.jar")
+
+    /**
+     * Discord
+     */
+    implementation("com.discord4j:discord4j-core:3.2.5")
+}
+
+/**
+ * Updating project metadata
+ */
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("metadata.json") {
+        expand "version": project.version
+    }
+}
+
+/**
+ * Build the project in a jar archive. The source file will be created in the 'build' folder
+ */
+jar {
+    archiveFileName = "${rootProject.name}-${version}.jar"
+    destinationDirectory = file('build')
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+
+    from ('.') {
+        include('LICENSE')
+    }
+}

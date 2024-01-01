@@ -1,0 +1,25 @@
+{
+  "name": "xLorey Discord",
+  "description": "Unique Discord Bot plugin for the game Project Zomboid",
+  "id": "xlorey-discord",
+  "version": "${version}",
+  "authors": [
+    "xLorey Team"
+  ],
+  "contact": [
+    "xlorey@mail.ru"
+  ],
+  "license": "MIT",
+  "icon": "icon.png",
+  "entrypoints": {
+    "client": [],
+    "server": [
+      "io.xlorey.Discord.Main"
+    ]
+  },
+  "controlsEntrypoint": "",
+  "dependencies": {
+    "project-zomboid": "=41.78.16",
+    "flux-loader": "=0.7.0"
+  }
+}

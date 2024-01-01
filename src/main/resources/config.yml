@@ -1,0 +1,69 @@
+# Time to wait (in seconds) before sending a player disconnect notification.
+disconnectWindowTime: 120
+# Token for Discord bot.
+botToken: "<YOUR TOKEN>"
+# Webhook token for sending messages.
+webHookToken: "<YOUR WEBHOOK>"
+# ID of the chat to which messages will be sent.
+chatID: "<YOUR CHATID>"
+# Discord bot settings.
+botSettings:
+  # URL of the bot's avatar image.
+  avatarURL: "https://i.imgur.com/r0PPTDE.png"
+  # URL attached to the header of the embed message.
+  titleURL: "https://discord.gg/BwSuTdEGJ4"
+# Text templates for various notifications and messages.
+translation:
+  # Text format for updating server information.
+  topicText: "Текущие игроки: <CURRENT_PLAYER>/<MAX_PLAYER> | Сервер работает: <SERVER_WORK_TIME> мин. | Обновлено: <UPDATE_TIME>"
+  # Header of the embed message.
+  embedTitle: "xLorey | Project Zomboid"
+  # Text of the notification about the death of the player.
+  playerDeath: "Игрок **<USERNAME>** погиб смертью храбрых"
+  # Text of the notification about the death of a player in PvP.
+  playerDeathPVP: "Игрок **<USERNAME>** погиб в смертельной схватке с **<ATTACKER>**"
+  # Text in the footer of the death message.
+  deathFooter: "Соболезнуем :c"
+  # Text of the notification about the player connecting to the server.
+  playerConnect: "Игрок **<USERNAME>** подключился к серверу"
+  # Text in the footer of the connection message.
+  connectFooter: "Добро пожаловать! <3"
+  # Notification text when a player is disconnected from the server.
+  playerDisconnect: "Игрок **<USERNAME>** отключился от сервера"
+  # Text in the footer of the disconnection message.
+  disconnectFooter: "Возвращайся скорее! :c"
+  # Text of the notification about a player being kicked from the server.
+  kickText: "Игрок **<USERNAME>** был выкинут с сервера по причине: **<REASON>**"
+  # Text of the notification about blocking a player on the server.
+  banText: "Игрок **<USERNAME>** был заблокирован на сервере по причине: **<REASON>**"
+  # Text in the footer of the punishment message.
+  punishmentFooter: "Пожалуйста, не нарушайте правила сервера"
+  # Message header when the server shuts down
+  shutdownServerTitle: "Наш сервер Project Zomboid был выключен. Скоро запустимся вновь!"
+  # Footer for messages when the server is shut down
+  shutdownServerFooter: "Плановое выключение, просим прощения! :c"
+  # Message header when starting the server
+  initServerTitle: "Наш сервер Project Zomboid был успешно запущен! Скорее подключайтесь!"
+  # Footer for messages when the server starts
+  initServerFooter: "Мы ждем только тебя! <3"
+  # Field name for the server name
+  fieldServerName: "Название сервера:"
+  # The value of the server name field
+  fieldServerNameValue: "xLorey | Vanila++"
+  # Field name for the current number of players on the server
+  fieldCurrentPlayers: "Текущие игроки:"
+  # Field name for the maximum number of players on the server
+  fieldMaxPlayers: "Всего слотов:"
+  # Field name for server mode
+  fieldServerMode: "Режим сервера:"
+  # Field name for the server IP address
+  fieldIP: "IP сервера:"
+  # Value of the field with the server IP address
+  fieldIPValue: "92.53.65.131"
+  # Field name for the server port
+  fieldPORT: "PORT сервера:"
+  # Value of the field with the server PORT address
+  fieldPORTValue: "16261"
+  # Format of messages from Discord to server chat
+  chatFromDiscord: "<RGB:0.345,0.396,0.949> [Discord] <SPACE_SYMBOL> <RGB:1,1,1> <USERNAME>: <TEXT>"
+
