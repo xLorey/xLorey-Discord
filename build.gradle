@@ -9,7 +9,7 @@ plugins {
  * Project group and version
  */
 group = 'io.xlorey.Discord'
-version = '0.1.1'
+version = '0.2.0'
 
 /**
  * Repositories used

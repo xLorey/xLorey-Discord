@@ -18,7 +18,9 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.concurrent.*;
 
 import static io.xlorey.Discord.Main.*;
@@ -32,6 +34,9 @@ public class DiscordTools {
     public static Map<String, ScheduledFuture<?>> disconnectTimers = new ConcurrentHashMap<>();
     public static long serverStartTime;
 
+    private static Random random = new Random();
+
+
     /**
      * Send a chat message as a bot
      * @param content Message text
@@ -43,6 +48,38 @@ public class DiscordTools {
                 .ofType(MessageChannel.class)
                 .flatMap(channel -> channel.createMessage(content))
                 .then();
+    }
+
+    /**
+     * Retrieves random message text from a list by key
+     */
+    public static String getMessageText(String key) {
+        List<Object> messageList = Main.getDefaultConfig().getList(key);
+        if (messageList == null || messageList.isEmpty()) {
+            return "";
+        }
+
+        return (String) messageList.get(random.nextInt(messageList.size()));
+    }
+
+    /**
+     * Removes surrogate characters from the given text.
+     * @param text The input text containing surrogate characters.
+     * @return A new string with surrogate characters removed.
+     */
+    public static String removeSmilesAndImages(String text) {
+        StringBuilder builder = new StringBuilder();
+        char[] chars = text.toCharArray();
+        int length = chars.length;
+
+        for(int index = 0; index < length; ++index) {
+            Character character = chars[index];
+            if (!Character.isLowSurrogate(character) && !Character.isHighSurrogate(character)) {
+                builder.append(character);
+            }
+        }
+
+        return builder.toString();
     }
 
     /**

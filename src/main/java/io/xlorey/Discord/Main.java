@@ -101,6 +101,8 @@ public class Main extends Plugin {
         try {
             Logger.printLog("Initializing Discord bot...");
 
+            CommandsTools.loadCommands();
+
             DiscordClient client = DiscordClient.create(getConfig().getString("botToken"));
             gateway = client.login().block();
 
