@@ -1,11 +1,11 @@
 # Time to wait (in seconds) before sending a player disconnect notification.
 disconnectWindowTime: 120
 # Token for Discord bot.
-botToken: "<YOUR TOKEN>"
+botToken: "YOUR TOKEN"
 # Webhook token for sending messages.
-webHookToken: "<YOUR WEBHOOK>"
+webHookToken: "YOUR WEBHOOK"
 # ID of the chat to which messages will be sent.
-chatID: "<YOUR CHATID>"
+chatID: "YOUR CHATID"
 # Discord bot settings.
 botSettings:
   # URL of the bot's avatar image.
